@@ -6,18 +6,17 @@
  */
 int main(void)
 {
-	int i = '0';
-	int j = '0';
+	int i, j;
 
-	while (i < 10)
+	for (i = 0; i < 10; i++)
 	{
-		while (j < 10)
+		for (j = 0; j < 10; j++)
 		{
-			if (i < j && i != j)
+			if (!(i > j || i == j))
 			{
-				putchar(i);
-				putchar(j);
-				if (i == '8' && j == '9')
+				putchar(i + '0');
+				putchar(j + '0');
+				if (i == 8 && j == 9)
 				{
 					putchar('\n');
 				}
@@ -27,10 +26,7 @@ int main(void)
 					putchar(' ');
 				}
 			}
-			j++;
 		}
-		j = '0';
-		i++;
 	}
 	return (0);
 }
