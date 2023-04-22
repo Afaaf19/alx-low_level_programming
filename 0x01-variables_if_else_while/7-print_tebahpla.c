@@ -6,12 +6,16 @@
  */
 int main(void)
 {
-	int i;
+	char rev;
 
-	for (i = 9; i > 0; i--)
+	rev = 'z';
+	while (rev >= 'a')
 	{
-		putchar(i + '0');
+		putchar(rev);
+		rev--;
 	}
+
+
 	putchar('\n');
 	return (0);
 }
