@@ -2,9 +2,7 @@
 /**
  * main - Entry point
  *
- * description: program that prints _putchar
- *
- * Returns 0 SUCCESS
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
