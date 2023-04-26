@@ -2,7 +2,6 @@
 /**
  * print_times_table - table with dimenion xn
  * @n: input dimension
- * Code ASCII is used
  * Return: void
  */
 void print_times_table(int n)
@@ -13,25 +12,30 @@ void print_times_table(int n)
 	{
 		for (i = 0; i <= n ; i++)
 		{
+			_putchar('0');
 			for (j = 0; j <= n; j++)
 			{
-				d = j * i;
-				if (j == 0)
-					_putchar(d + '0');
-				else if (d < n && !j == 0)
+				_putchar(',');
+				_putchar(' ');
+				d = i * j;
+				if (d < 100)
 				{
-					_putchar(44);
-					_putchar(32);
-					_putchar(32);
-					_putchar(d + '0');
+					_putchar(' ');
 				}
-				else
+				else if (d < 10)
 				{
-					_putchar(44);
-					_putchar(32);
-					_putchar(d / 10 + '0');
-					_putchar(d % 10 + '0');
+					_putchar(' ');
 				}
+				else if (d >= 100)
+				{
+					_putchar((d / 100) + '0');
+					_putchar(((d / 10)) % 10 + '0');
+				}
+				else if (d < 100 && d > 9)
+				{
+					_putchar((d / 10) + '0');
+				}
+				_putchar((d % 10) + '0');
 			}
 			_putchar('\n');
 		}
