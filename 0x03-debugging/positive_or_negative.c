@@ -3,7 +3,7 @@
 #include "main.h"
 /**
  * positive_or_negative - Entry point
- *
+ *@i: variable to test with
  * Return: Always 0 (Success)
  */
 void positive_or_negative(int i)
