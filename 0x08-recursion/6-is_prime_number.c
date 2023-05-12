@@ -20,9 +20,9 @@ int is_prime_number(int n)
  */
 int prime_it(int n, int z)
 {
-	if (z >= n && n >= 2)
+	if (z * z > n)
 		return (1);
-	else if (n % z == 0 || n < 2)
+	else if (n % z == 0)
 		return (0);
 	else
 		return (prime_it(n, z + 1));
