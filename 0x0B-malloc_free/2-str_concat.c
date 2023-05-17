@@ -8,7 +8,7 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	int i, j, ln1, ln2;
+	int i = 0, j = 0, ln1, ln2;
 	char *cat;
 
 	ln1 = 0;
@@ -24,13 +24,24 @@ char *str_concat(char *s1, char *s2)
 	cat = (char *)malloc((ln1 + ln2 + 1) * (sizeof(char)));
 	if (cat == NULL)
 		return (NULL);
-	for (i = 0; s1[i] != '\0'; i++)
+	if (s1 != 0)
 	{
-		cat[i] = s1[i];
+		while (i < ln1)
+		{
+			cat[i] = s1[i];
+			i++;
+		}
 	}
-	for (j = 0; s2[j] != '\0'; j++)
+	if (s2 != 0)
 	{
-		cat[i + j] = s2[j];
+		while (i < (ln1 + ln2))
+		{
+			cat[i] = s2[j];
+			i++;
+			j++;
+		}
 	}
+	cat[i] = '\0';
+
 	return (cat);
 }
