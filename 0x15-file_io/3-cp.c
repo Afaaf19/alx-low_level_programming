@@ -8,25 +8,27 @@
  */
 void cp_file(const char *fd_from, const char *fd_to)
 {
-	int file_from = open(fd_from, O_RDONLY);
-	int file_to = open(fd_to, O_WRONLY | O_CREAT | O_TRUNC, mode);
+	int file_from;
+	int file_to;
 	ssize_t nb_read;
-	char buff[BUF_SIZE];
+	char buff[BUFF_SIZE];
 	mode_t md = S_IRUSR | S_IWUSR | S_IWGRP | S_IRGRP | S_IROTH;
 
+	file_from = open(fd_from, O_RDONLY);
 	if (file_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", fd_from);
 		exit(98);
 	}
 
+	file_to = open(fd_to, O_WRONLY | O_CREAT | O_TRUNC, md);
 	if (file_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fd_to);
 		exit(99);
 	}
 
-	while ((nb_read = read(file_from, bff, BUF_SIZE)) > 0)
+	while ((nb_read = read(file_from, buff, BUFF_SIZE)) > 0)
 	{
 		if (write(file_to, buff, nb_read) != nb_read)
 		{
@@ -53,7 +55,7 @@ void cp_file(const char *fd_from, const char *fd_to)
 	}
 }
 
-int main(int argc, char argv[])
+int main(int argc, char *argv[])
 {
 	if (argc != 3)
 	{
